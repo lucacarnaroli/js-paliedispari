@@ -5,32 +5,36 @@
 // Sommiamo i due numeri e dichiariamo chi ha
 // vinto (controlliamo se la somma da pari o dispari).
 
-var pariDispari = prompt('scegli pari o dispari');
-console.log(pariDispari);
+// L’utente sceglie pari o dispari
+var sceltaUtente = prompt('scegli pari o dispari');
+var numUtente = parseInt(prompt('scegli un numero da 1 a 5'));
+var numRandom = randomNumber(5, 1);
 
-var num = parseInt(prompt('scegli un numero da 1 a 5'));
-console.log(num);
-var random = Math.floor(Math.random()* 5)+ 1;
-console.log(random);
+var sommaNum = numUtente + numRandom;
+var pariDispari = oddEven(sommaNum);
 
-// senza funzione
-// var somma = random + num;
-// console.log(somma);
-//
-// if (somma % 2 == 0) {
-//   console.log('pari hai vinto');
+// if (sommaNum % 2 == 0) {
+//   var evenOdd = 'pari'
 // } else {
-//   console.log('dispari hai perso');
+//   var evenOdd = 'dispari';
 // }
-var somma = numPariDispari(random, num);
-console.log(somma);
-// con funzione
-function numPariDispari(random, num) {
-  if (sommaNum % 2 == 0) {
-    console.log('pari hai vinto');
+
+if (pariDispari == evenOdd) {
+  console.log('hai vinto');
+} else {
+  console.log('hai perso');
+}
+
+function randomNumber (numMax, numMin){
+  var result = Math.floor(Math.random()* (numMax - numMin +1))+numMin;
+  return result
+}
+
+function oddEven(numero){
+  if (numero % 2 == 0) {
+    var evenOdd = 'pari';
   } else {
-    console.log('dispari hai perso');
+    var evenOdd = 'dispari';
   }
-  var sommaNum = random + num;
-  return sommaNum;
+  return evenOdd
 }
